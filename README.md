@@ -420,6 +420,28 @@ The project currently has the following major functionality working:
 - Environment-file protection
 
 ---
+## Demo / Test Account
+
+For project evaluation, the application can be tested using the following demo account:
+
+| Field | Credential |
+|---|---|
+| Email | `test@gmail.com` |
+| Password | `M@123` |
+| Role | Student |
+
+> **Note:** This is a temporary demo account created only for testing and project evaluation. It should not contain any sensitive or real user data.
+
+### How to Test the Application
+
+1. Open the deployed application.
+2. Click **Sign In**.
+3. Enter the demo credentials above.
+4. Open the **Dashboard**.
+5. Enter a Subject and Lecture Topic.
+6. Select the required Academic Level, Language, and Notes Type.
+7. Click **Generate Notes**.
+8. Open **My Notes** to verify that the generated notes have been saved and can be retrieved.
 
 ## Planned Improvements
 
