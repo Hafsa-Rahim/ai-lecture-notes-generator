@@ -1,0 +1,6 @@
+{
+  "name": "AI Lecture Notes Generator",
+  "description": "Generate professional lecture notes, summaries, explanations, revision material, and study guides instantly with Artificial Intelligence.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
