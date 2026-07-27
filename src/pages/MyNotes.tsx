@@ -47,7 +47,39 @@ export default function MyNotes() {
       .map((word: string) => word[0])
       .join("")
       .toUpperCase() || "U";
+const toggleFavorite = async (noteId: string, currentFavorite: boolean) => {
+  try {
+    const response = await fetch(
+      `/api/notes/${noteId}/favorite`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          favorite: !currentFavorite,
+        }),
+      }
+    );
 
+    const data = await response.json();
+
+    if (data.success) {
+      setNotes((prevNotes) =>
+        prevNotes.map((note) =>
+          note.id === noteId
+            ? { ...note, Favorite: !currentFavorite }
+            : note
+        )
+      );
+    } else {
+      alert(data.message || "Unable to update favorite.");
+    }
+  } catch (error) {
+    console.error("Favorite Error:", error);
+    alert("Something went wrong while updating favorite.");
+  }
+};
   return (
     <div className="min-h-screen flex bg-slate-50 text-slate-800">
 
@@ -165,10 +197,26 @@ export default function MyNotes() {
                   className="bg-white rounded-xl shadow p-6"
                 >
 
-                  <h2 className="text-xl font-bold text-blue-600">
-                    {note.Lecture_Topic}
-                  </h2>
+                  <div className="flex items-center justify-between gap-4">
+  <h2 className="text-xl font-bold text-blue-600">
+    {note.Lecture_Topic}
+  </h2>
 
+  <button
+    type="button"
+    onClick={() =>
+      toggleFavorite(note.id, Boolean(note.Favorite))
+    }
+    className="text-2xl"
+    title={
+      note.Favorite
+        ? "Remove from Favorites"
+        : "Add to Favorites"
+    }
+  >
+    {note.Favorite ? "⭐" : "☆"}
+  </button>
+</div>
                   <div className="grid md:grid-cols-2 gap-2 mt-4 text-sm">
 
                     <p>

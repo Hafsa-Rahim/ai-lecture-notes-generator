@@ -150,7 +150,7 @@ Requirements:
 `;
 
     const result = await ai.models.generateContent({
-      model: "gemini-3.5-flash",
+      model: "gemini-3.6-flash",
       contents: prompt,
     });
 
@@ -220,6 +220,37 @@ app.get("/api/notes/:userId", async (req, res) => {
     });
   } catch (error: any) {
     console.error("Get Notes Error:", error);
+
+    return res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+});
+// ===========================
+// Toggle Favorite API
+// ===========================
+app.patch("/api/notes/:recordId/favorite", async (req, res) => {
+  try {
+    const { recordId } = req.params;
+    const { favorite } = req.body;
+
+    await base(process.env.AIRTABLE_NOTES_TABLE!).update([
+      {
+        id: recordId,
+        fields: {
+          Favorite: Boolean(favorite),
+        },
+      },
+    ]);
+
+    return res.json({
+      success: true,
+      message: "Favorite updated successfully.",
+      favorite: Boolean(favorite),
+    });
+  } catch (error: any) {
+    console.error("Favorite Update Error:", error);
 
     return res.status(500).json({
       success: false,
