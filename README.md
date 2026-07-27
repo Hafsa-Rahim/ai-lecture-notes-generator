@@ -431,7 +431,40 @@ For project evaluation, the application can be tested using the following demo a
 | Role | Student |
 
 > **Note:** This is a temporary demo account created only for testing and project evaluation. It should not contain any sensitive or real user data.
+## 📸 Application Screenshots
 
+### 1. Home Page
+The landing page introduces the AI Lecture Notes Generator and allows users to access the application.
+
+![Home Page](api/Screenshots/01-home-page.png)
+
+---
+
+### 2. User Sign In
+Registered students can securely sign in to access their personal dashboard.
+
+![Login Page](api/Screenshots/02-login-page.png)
+
+---
+
+### 3. Student Dashboard
+The dashboard displays student information and provides access to AI note generation, saved notes, favorites, history, and profile features.
+
+![Student Dashboard](api/Screenshots/03-student-dashboard.png)
+
+---
+
+### 4. AI Lecture Notes Generation
+Students can enter a subject, lecture topic, academic level, language, and notes type to generate customized lecture notes using AI.
+
+![AI Generating Notes](api/Screenshots/04-ai-generating-notes.png)
+
+---
+
+### 5. AI Generated Notes
+Generated lecture notes are displayed in a structured format and stored in the database so the student can access them later from My Notes.
+
+![AI Generated Result](api/Screenshots/05-ai-result.png)
 ### How to Test the Application
 
 1. Open the deployed application.
