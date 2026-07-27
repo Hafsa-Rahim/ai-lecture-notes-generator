@@ -29,31 +29,6 @@ app.get("/api/health", (_req, res) => {
     message: "Server is running successfully!",
   });
 });
-
-// ===========================
-// Airtable Test API
-// ===========================
-app.get("/api/test-airtable", async (_req, res) => {
-  try {
-    const records = await base(process.env.AIRTABLE_USERS_TABLE!)
-      .select({ maxRecords: 5 })
-      .firstPage();
-
-    res.json({
-      success: true,
-      totalRecords: records.length,
-      records,
-    });
-  } catch (error: any) {
-    console.error("Airtable Test Error:", error);
-
-    res.status(500).json({
-      success: false,
-      message: error.message,
-    });
-  }
-});
-
 // ===========================
 // Register User API
 // ===========================
