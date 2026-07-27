@@ -38,16 +38,10 @@ export default function SignUp() {
       const data = await response.json();
 
       if (data.success) {
-        alert("Registration Successful!");
+  alert("Registration Successful! Please sign in.");
 
-        setFullName("");
-        setEmail("");
-        setPassword("");
-        setConfirmPassword("");
-        setRole("Student");
-        setUniversity("");
-        setDepartment("");
-      } else {
+  window.location.href = "/signin";
+} else {
         alert(data.message);
       }
     } catch (error) {
